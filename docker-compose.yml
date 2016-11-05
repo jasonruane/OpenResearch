@@ -1,0 +1,14 @@
+node:
+    image: node:7
+    command: node /usr/src/app/index.js
+    volumes:
+        - .:/usr/src/app
+    links:
+        - mongo
+    ports:
+        - "3000:3000"
+
+mongo:
+    image: mongo:3
+    volumes:
+        - db:/data/db
